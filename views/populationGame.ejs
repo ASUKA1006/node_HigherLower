@@ -1,0 +1,36 @@
+<html>
+    <form action= '/login/populationgame' method='post'>
+        <head>
+            <title>welcome to my game</title>
+        </head>
+        <body>
+            <font face='Comic Sans MS' color='#780000' size='24'>Question</font><br><br><br>
+            <font color= '#00637c' face='arial' size= '16'>どちらの区の人口が多い？</font><br><br><br>
+            <p><font color='#00637c' face='arial'><%- title1 %></font>
+            <input type="radio" name='title1' value="<%- titleList %>"></p>
+            <p><font color='#00637c' face='arial'><%- title2 %></font>
+            <input type="radio" name='title2' value="<%- titleList %>"></p><br><br><br><br><br><br>
+            <input type='submit' value='send'><br><br><br><br><br><br>
+    </form>
+    <form action= '/login/populationgame' method='get'>
+            <font color= '#00637c'><%= 'あなたのスコア: ' + Userscore %></font><br><br><br>
+            <% if (answer === 1) { %>
+            <p><font color= #be0000 face= 'arial'>正解だな</font></p>
+            <a href="/login/populationgame" face='Westminster'>次へ</a><br>
+            
+            <% } else if (answer === 0){ %>
+            <p><font color= #be0000 face= 'arial'>残念。不正解</font></p>
+            <a href="/login/success" face='Westminster'>メニューに戻る</a><br>
+
+            <% } else if (answer === 3){ %>
+                <p><font color= #be0000 face= 'arial'>せいかーい。3問連続正解したので、次はボーナス問題だ</font></p>
+                <a href="/login/bonusgame" face='Westminster'>ボーナス問題へ</a><br>
+
+            <% } else { %>
+            <!-- else -->
+            <% } %>
+    </form>       
+
+        </body>
+    
+</html>

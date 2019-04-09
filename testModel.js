@@ -7,9 +7,24 @@ var userSchema = new Schema({
     password: String,
     age: String,
     city: String,
-    score: String,
-    active: Boolean
+    score: Number,
+    active: Boolean,
+    questionCount: Number
 });
+
+var populationSchema = new Schema({
+    _id: Number,
+    theme: String,
+    count: Number
+})
+
+var bonusSchema = new Schema({
+    _id: Number,
+    question: String,
+    choice1: String,
+    choice2: String,
+    right: Number
+})
 
 var options = ({
     missingPasswordError: 'Wrong password'
@@ -17,4 +32,9 @@ var options = ({
 userSchema.plugin(passportLocalMongoose, options);
 
 mongoose.connect('mongodb://localhost/NoGame')
+
+
+
 exports.userSchema = mongoose.model('User', userSchema);
+exports.populationSchema = mongoose.model('Population', populationSchema);
+exports.bonusSchema = mongoose.model('Bonus', bonusSchema);

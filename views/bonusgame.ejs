@@ -1,0 +1,29 @@
+<html>
+    <form action= '/login/bonusgame' method='post'>
+        <head>
+            <title>welcome to my game</title>
+        </head>
+        <body>
+            <font face='Comic Sans MS' color='#ffff00' size='18'>Bonus Quiz</font><br><br><br>
+            <font color= '#00637c' face='arial' size= '6'><%- question %></font><br><br><br>
+            <p><font color='#00637c' face='arial'><%- choice1 %></font>
+            <input type="radio" name='choice1' value="<%- choiceList %>"></p>
+            <p><font color='#00637c' face='arial'><%- choice2 %></font>
+            <input type="radio" name='choice2' value="<%- choiceList %>"></p><br><br><br><br><br><br>
+            <input type='submit' value='send'><br><br><br><br><br><br>
+    </form>
+    <form action= '/login/populationgame' method='get'>
+            <% if (answer === 1) { %>
+            <p><font color= #be0000 face= 'arial'>正解だ。ボーナス問題の方が面白いとは言わせねえぞ？</font></p>
+            <a href="/login/populationgame" face='Westminster'>通常問題へ</a><br>
+            
+            <% } else if (answer === 0){ %>
+            <p><font color= #be0000 face= 'arial'>残念。不正解。やっぱボーナス問題やっても意味ないな</font></p>
+            <a href="/login/success" face='Westminster'>メニューに戻る</a><br>
+
+            <% } else { %>
+            <!-- else -->
+            <% } %>
+    </form>       
+
+        </body>
